@@ -30,5 +30,12 @@ kubectl --namespace kube-system set image --record daemonset/auth-idp platform-i
 kubectl --namespace kube-system rollout history daemonset/auth-idp
 kubectl --namespace kube-system rollout history daemonset/aoth-idp --revision 2
 ----------------------------
-cloudctl catalog load-archive --archive audit-logging-k8saudit-3.1.2-22108-20190228.tar.gz --registry <cluster_CA_domain>:8500/kube-system --repo mgmt-charts
+cloudctl catalog load-archive --archive audit-logging-k8saudit-3.1.2-22108-20190228.tar.gz --registry <cluster_CA_domain>:8500/ibmcom --repo mgmt-charts
 GUI
+- config
+journal_path -> /run/log/journal
+k8saudit_path -> "/var/log/k8saudit"
+k8saudit_file_path -> "/var/log/k8saudit/*"
+- fluentd
+image.repository -> <cluster_CA_domain>:8500/ibmcom/fluentd
+image.tag -> 3.1.2-22108
