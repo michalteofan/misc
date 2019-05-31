@@ -1,0 +1,21 @@
+cloudctl login -a https://<cluster_CA_domain>:<router_https_port> --skip-ssl-validation
+docker login <cluster_CA_domain>:8500
+cloudctl catalog load-archive --archive audit-logging-vascan-3.1.2-21205-20190205.tar.gz --registry <cluster_CA_domain>:8500/<namespace> --repo mgmt-charts
+
+export HELM_HOME=~/.helm
+helm init -c --skip-refresh
+helm repo add mgmt-charts https://<cluster_CA_domain>:<router_https_port>/mgmt-repo/charts --ca-file $HELM_HOME/ca.pem  --cert-file $HELM_HOME/cert.pem --key-file $HELM_HOME/key.pem
+
+helm get values audit-logging --tls > values-old.yaml
+helm get values audit-logging --tls > values-old.yaml
+
+vim values-old.yaml
+
+config:
+  journal_path: /run/log/journal
+fluentd:
+  image:
+    repository: <cluster_CA_domain>:8500/<namespace>/fluentd
+    tag: 3.1.2-21205
+
+helm upgrade audit-logging mgmt-charts/audit-logging --force -f values-old.yaml --version <version> --tls
