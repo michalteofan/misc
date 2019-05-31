@@ -76,3 +76,9 @@ kubectl --namespace kube-system set image --record daemonset/platform-ui platfor
 
 -----------------------------------
 cloudctl catalog load-archive --archive icp-management-ingress-errorpage-3.1.2-25356-20190523.tar.gz --registry <cluster_CA_domain>:8500/<namespace> --repo mgmt-charts
+GUI
+Set image.repository to <cluster_CA_domain>:8500/<namespace>/icp-management-ingress.
+Set image.tag to 2.2.3-fix25356.
+https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/WS/08ael/0/Xa.2/Xb.jusyLTSp44S0Bsg6zich2gmz9mNvfpk6ft4esTpGRXaXODYl0RAlGGlicoo/Xc.CM/WS/08ael/0/icp-management-ingress-errorpage-3.1.2-25356-20190523.tar.gz/Xd./Xf.Lpr./Xg.10214667/Xi.habanero/XY.habanero/XZ.PEtS9f9fbBAAovRbRN9wHx4Ph3w/icp-management-ingress-errorpage-3.1.2-25356-20190523.tar.gz
+---------------------------------
+cloudctl catalog load-archive --archive auth-idp-patch-3.1.2-23282-20190504.tar.gz --registry <cluster_CA_domain>:8500/<namespace> --repo mgmt-charts
