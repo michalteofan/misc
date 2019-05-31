@@ -39,3 +39,7 @@ k8saudit_file_path -> "/var/log/k8saudit/*"
 - fluentd
 image.repository -> <cluster_CA_domain>:8500/ibmcom/fluentd
 image.tag -> 3.1.2-22108
+--------------------------------
+cloudctl catalog load-archive --archive platform-ui-manageTeamResources-3.1.2-21076-23129-20190327.tar.gz --registry <cluster_CA_domain>:8500/ibmcom --repo mgmt-charts
+kubectl --namespace kube-system set image --record daemonset/platform-ui platform-ui=<cluster_CA_domain>:8500/ibmcom/icp-platform-ui:3.1.2-patch-manageTeamResources
+-------------------------------
