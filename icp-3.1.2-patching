@@ -49,3 +49,13 @@ GUI
 image.repository to <cluster_CA_domain>:8500/<namespace>/icp-management-ingress
 - set 
 image.tag to 2.2.3-fix23823
+--------------------------------
+cloudctl catalog load-archive --archive vulnerability-advisor-xss-3.1.2-23954-20190417.tar.gz --registry <cluster_CA_domain>:8500/ibmcom --repo mgmt-charts
+GUI
+GUI
+Set sasApiserver.image.repository to <cluster_CA_domain>:8500/<namespace>/sas-base
+Set sasApiserver.image.tag to 3.1.2.1
+Set sasMgmt.image.repository to <cluster_CA_domain>:8500/<namespace>/sas-base
+Set sasMgmt.image.tag to 3.1.2.1
+Set mafileAnnotator.image.repository to <cluster_CA_domain>:8500/<namespace>/ma-file-annotator
+Set mafileAnnotator.image.tag to 3.1.2.1
