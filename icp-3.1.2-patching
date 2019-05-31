@@ -59,3 +59,10 @@ Set sasMgmt.image.repository to <cluster_CA_domain>:8500/<namespace>/sas-base
 Set sasMgmt.image.tag to 3.1.2.1
 Set mafileAnnotator.image.repository to <cluster_CA_domain>:8500/<namespace>/ma-file-annotator
 Set mafileAnnotator.image.tag to 3.1.2.1
+-----------------------------------
+cloudctl catalog load-archive --archive metering-nodejs-update-3.1.2-23128-20190426.tar.gz --registry <cluster_CA_domain>:8500/kube-system --repo mgmt-charts
+GUI
+Set the Repository field of Data Manager to <cluster_CA_domain>:8500/<namespace>/metering-data-manager. For example, mycluster.icp:8500/kube-system/metering-data-manager.
+Set the Repository field of Console to <cluster_CA_domain>:8500/<namespace>/metering-ui. For example, mycluster.icp:8500/kube-system/metering-ui.
+Set the Repository field of Reader to <cluster_CA_domain>:8500/<namespace>/metering-data-manager. For example, mycluster.icp:8500/kube-system/metering-data-manager.
+<namespace> is the Kubernetes namespace where metering is installed. The default value is kube-system.
