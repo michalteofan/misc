@@ -70,3 +70,6 @@ Set the Repository field of Reader to <cluster_CA_domain>:8500/<namespace>/meter
 cloudctl catalog load-archive --archive auth-idp-logout-3.1.2-23797-20190510.tar.gz --registry <cluster_CA_domain>:8500/ibmcom --repo mgmt-charts
 kubectl --namespace kube-system set image --record daemonset/auth-idp platform-identity-provider=<cluster_CA_domain>:8500/<namespace>/icp-identity-provider:3.1.2-patch-logout platform-auth-service=<cluster_CA_domain>:8500/ibmcom/icp-platform-auth:3.1.2-patch-logout
 
+------------------------------
+cloudctl catalog load-archive --archive platform-ui-webTerminal-3.1.2-21733-20190508.tar.gz --registry <cluster_CA_domain>:8500/ibmcom --repo mgmt-charts
+kubectl --namespace kube-system set image --record daemonset/platform-ui platform-ui=<cluster_CA_domain>:8500/ibmcom/icp-platform-ui:3.1.2-patch-webTerminal
