@@ -23,8 +23,10 @@ helm upgrade audit-logging mgmt-charts/audit-logging --force -f values-old.yaml 
 cloudctl catalog load-archive --archive platform-ui-podStatus-3.1.2-20586-20190306.tar.gz --registry <cluster_CA_domain>:8500/kube-system --repo mgmt-charts
 kubectl --namespace kube-system set image --record daemonset/platform-ui platform-ui=<cluster_CA_domain>:8500/kube-system/icp-platform-ui:3.1.2-patch-podStatus
 kubectl --namespace kube-system rollout history daemonset/platform-ui
+kubectl --namespace kube-system rollout history daemonset/platform-ui --revision 2
 ----------------------------
 cloudctl catalog load-archive --archive auth-idp-audit_team-3.1.2-21423-20190312.tar.gz --registry <cluster_CA_domain>:8500/kube-system --repo mgmt-charts
 kubectl --namespace kube-system set image --record daemonset/auth-idp platform-identity-manager=<cluster_CA_domain>:8500/kube-system/icp-identity-manager:3.1.2-21423
 kubectl --namespace kube-system rollout history daemonset/auth-idp
+kubectl --namespace kube-system rollout history daemonset/aoth-idp --revision 2
 ----------------------------
