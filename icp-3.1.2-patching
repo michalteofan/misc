@@ -43,3 +43,9 @@ image.tag -> 3.1.2-22108
 cloudctl catalog load-archive --archive platform-ui-manageTeamResources-3.1.2-21076-23129-20190327.tar.gz --registry <cluster_CA_domain>:8500/ibmcom --repo mgmt-charts
 kubectl --namespace kube-system set image --record daemonset/platform-ui platform-ui=<cluster_CA_domain>:8500/ibmcom/icp-platform-ui:3.1.2-patch-manageTeamResources
 -------------------------------
+cloudctl catalog load-archive --archive icp-management-ingress-fingerprinting-3.1.2-23823-20190417.tar.gz --registry <cluster_CA_domain>:8500/ibmcom --repo mgmt-charts
+GUI
+- set 
+image.repository to <cluster_CA_domain>:8500/<namespace>/icp-management-ingress
+- set 
+image.tag to 2.2.3-fix23823
