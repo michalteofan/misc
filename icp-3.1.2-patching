@@ -19,8 +19,10 @@ fluentd:
     tag: 3.1.2-21205
 
 helm upgrade audit-logging mgmt-charts/audit-logging --force -f values-old.yaml --version <version> --tls
-
 ----------------------------
-
 cloudctl catalog load-archive --archive platform-ui-podStatus-3.1.2-20586-20190306.tar.gz --registry <cluster_CA_domain>:8500/kube-system --repo mgmt-charts
-kubectl --namespace <namespace> set image --record daemonset/platform-ui platform-ui=<cluster_CA_domain>:8500/kube-system/icp-platform-ui:3.1.2-patch-podStatus
+kubectl --namespace kube-system set image --record daemonset/platform-ui platform-ui=<cluster_CA_domain>:8500/kube-system/icp-platform-ui:3.1.2-patch-podStatus
+----------------------------
+cloudctl catalog load-archive --archive auth-idp-audit_team-3.1.2-21423-20190312.tar.gz --registry <cluster_CA_domain>:8500/kube-system --repo mgmt-charts
+kubectl --namespace kube-system set image --record daemonset/auth-idp platform-identity-manager=<cluster_CA_domain>:8500/kube-system/icp-identity-manager:3.1.2-21423
+----------------------------
