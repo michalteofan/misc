@@ -79,6 +79,15 @@ cloudctl catalog load-archive --archive icp-management-ingress-errorpage-3.1.2-2
 GUI
 Set image.repository to <cluster_CA_domain>:8500/<namespace>/icp-management-ingress.
 Set image.tag to 2.2.3-fix25356.
-https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/WS/08ael/0/Xa.2/Xb.jusyLTSp44S0Bsg6zich2gmz9mNvfpk6ft4esTpGRXaXODYl0RAlGGlicoo/Xc.CM/WS/08ael/0/icp-management-ingress-errorpage-3.1.2-25356-20190523.tar.gz/Xd./Xf.Lpr./Xg.10214667/Xi.habanero/XY.habanero/XZ.PEtS9f9fbBAAovRbRN9wHx4Ph3w/icp-management-ingress-errorpage-3.1.2-25356-20190523.tar.gz
 ---------------------------------
 cloudctl catalog load-archive --archive auth-idp-patch-3.1.2-23282-20190504.tar.gz --registry <cluster_CA_domain>:8500/<namespace> --repo mgmt-charts
+GUI
+Set identity_manager.image.repository to <cluster_CA_domain>:8500/<namespace>/icp-identity-manager.
+Set identity_manager.image.tag to 3.1.2-patch.
+Set platform_auth.image.repository to <cluster_CA_domain>:8500/<namespace>/icp-platform-auth.
+Set platform_auth.image.tag to 3.1.2-patch.
+Set config.logjam_dhkeysize_2048_bits_enabled value to false to resolve LDAP user authentication issue.
+Set config.ldap_search_exclude_wildcard_chars value to true to resolve LDAP users search issue.
+----------------------------------------
+cloudctl catalog load-archive --archive platform-ui-csrfAndSocket-3.1.2-23805-20190516.tar.gz --registry <cluster_CA_domain>:8500/<namespace> --repo mgmt-charts
+kubectl --namespace <namespace> set image --record daemonset/platform-ui platform-ui=<cluster_CA_domain>:8500/<namespace>/icp-platform-ui:3.1.2-patch-csrfAndSocket
