@@ -73,3 +73,6 @@ kubectl --namespace kube-system set image --record daemonset/auth-idp platform-i
 ------------------------------
 cloudctl catalog load-archive --archive platform-ui-webTerminal-3.1.2-21733-20190508.tar.gz --registry <cluster_CA_domain>:8500/ibmcom --repo mgmt-charts
 kubectl --namespace kube-system set image --record daemonset/platform-ui platform-ui=<cluster_CA_domain>:8500/ibmcom/icp-platform-ui:3.1.2-patch-webTerminal
+
+-----------------------------------
+cloudctl catalog load-archive --archive icp-management-ingress-errorpage-3.1.2-25356-20190523.tar.gz --registry <cluster_CA_domain>:8500/<namespace> --repo mgmt-charts
